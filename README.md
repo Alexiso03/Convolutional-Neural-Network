@@ -54,7 +54,7 @@ Filtering with a Threshold on Class Scores:
 
 ![image](https://user-images.githubusercontent.com/86974424/172106289-295ce3ca-3386-4043-8650-353552adc92f.png)
 
-NOTE: YOLO's network was trained to run on 608x608 images. If you are testing this data on a different size image -- for example, the car detection dataset had 720x1280 images -- this step rescales the boxes so that they can be plotted on top of the original 720x1280 image.
+<b>NOTE: YOLO's network was trained to run on 608x608 images. If you are testing this data on a different size image -- for example, the car detection dataset had 720x1280 images -- this step rescales the boxes so that they can be plotted on top of the original 720x1280 image.</b>
 
 <b>Training the model:</b>
 Training a YOLO model takes a very long time and requires a fairly large dataset of labelled bounding boxes for a large range of target classes. You are going to load an existing pre-trained Keras YOLO model stored in "yolo.h5". These weights come from the official YOLO website, and were converted using a function written by Allan Zelener.
@@ -81,6 +81,11 @@ U-Net improves on the FCN, using a somewhat similar design, but differing in som
 ![image](https://user-images.githubusercontent.com/86974424/172108807-3c474ede-915d-42af-b07c-039b6e817f2e.png)
 
 ##### Encoder (Downsampling Block):
+Each conv_block() is composed of 2 Conv2D layers with ReLU activations. We will apply Dropout, and MaxPooling2D to some conv_blocks, as we will verify in the following sections, specifically to the last two blocks of the downsampling.
+
+The function will return two tensors:
+1. next_layer: That will go into the next block.
+2. skip_connection: That will go into the corresponding decoding block.
 
 ![image](https://user-images.githubusercontent.com/86974424/172109185-a835d0b9-8da0-4972-970d-10d595eb94d0.png)
 
