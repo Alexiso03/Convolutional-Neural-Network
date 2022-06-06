@@ -1,6 +1,6 @@
 # Convolutional-Neural-Network
 
-## This repository contains two implementations of convultional neural networks: 
+## This repository contains two implementations of convolutional neural networks: 
 ### 1. Car Detection With YOLO
 ### 2. Image Segmentation With Unet
 ##
